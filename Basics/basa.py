@@ -5,6 +5,21 @@ def is_even(n: int):
     return "even" if n % 2 == 0 else "odd"
 
 
+def list_occurrences(first_list: list, second_list: list) -> list:
+    """ Вернет список, состоящий из элементов second_lst, что входят в first_lst """
+    return [el for el in second_list if el in first_list]
+
+
+def list_filter_string(given_list: list, letter: str) -> list:
+    """ Вернет список из элементов given_list, что содержат в себе букву letter """
+    result = []
+    for el in given_list:
+        if letter in el:
+            result.append(el)
+
+    return result
+
+
 number = 12.123
 digit = 5
 name = "John"
@@ -23,8 +38,8 @@ nickname = " Doe"
 for num in range(1, 30):
     if num % 7 == 0:
         print(f"{num} can be divided by 7")
-    print("End of if block")
-print("End of for block")
+#   Конец блока if
+# Конец блока for
 
 
 """
@@ -67,7 +82,69 @@ print(len(message))
 
 
 print(is_even(8))
+print('\n\n')
 
+# Список: в нем предметы упорядоченны, элементы изменяемы, возможны повторения значения
+array = [123, 456, 'some_string', True, False, ('a', 2), True]
+array[0] += array[1]
+array.append(567)
+array.remove(True)
+print(array)
+print(len(array))
+print(isinstance(array, tuple))
 
+fruits = list(("apple", "banana", "orange", "melon", "grape"))
+print(fruits[-1])
+print(fruits[3:])
+print(fruits)
+fruits[1:4] = ["watermelon", "cherry"]
+print(fruits)
+
+fruit = "orange"
+if fruit in fruits:
+    print(f"{fruit} exists in fruits")
+else:
+    print(f"{fruit} doesn't exist in fruits")
+
+print(fruits)
+fruits.append("ginger")
+print(fruits)
+fruits.insert(0, "orange")
+print(fruits)
+
+products = ["chocolate", "cake", "soda"]
+products.extend(fruits)
+print(products)
+
+products.remove("cake")
+print(products)
+
+deleted_product = products.pop(5)
+print(deleted_product)
+print(products)
+
+del products[4]
+print(products)
+
+# Синтаксис вложенных списков:
+# [ВЫРАЖЕНИЕ for ПРЕДМЕТ in КОЛЛЕКЦИЯ if УСЛОВИЕ == True]
+
+# products_with_o = []
+# for product in products:
+#     if 'o' in product:
+#         products_with_o.append(product)
+
+products_with_o = list_filter_string(products, 'o')
+products_with_a = list_filter_string(products, 'a')
+print()
+print(products_with_o)
+print(products_with_a)
+new_list = list_occurrences(products_with_a, products_with_o)
+print(new_list)
+
+# for product in products:
+#     print(product)
+
+# [print(product) for product in products]
 
 
