@@ -34,13 +34,13 @@ def game_of_range(s: str) -> str:
         return "Vasya won"
 
 
-def game_of_numbers(n: int):
+def game_of_numbers(n: str):
     positive = 0
     negative = 0
     zeros = 0
 
     multiplication = 1
-    for _ in range(n):
+    for _ in range(int(n)):
         number = int(input())
         if number < 0:
             negative += 1
@@ -54,10 +54,13 @@ def game_of_numbers(n: int):
     print(positive, negative, sep=' ')
     print(multiplication, end=' ')
     if zeros:
-        print("positive")
+        print("zero")
     elif negative % 2:
         print("negative")
     else:
-        print(positive)
+        print("positive")
 
 
+print(game_of_float(input()))
+print(game_of_range(input()))
+game_of_numbers(input())
